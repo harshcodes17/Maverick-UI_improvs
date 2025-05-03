@@ -245,8 +245,17 @@ export const QuestionBanks: React.FC = () => {
                       </span>
                     </td>
                     <td className="px-3 py-2 sm:px-6 sm:py-4 whitespace-nowrap text-right text-xs sm:text-sm font-medium">
-                      <Link to={`/question-banks/${bank.id}`} className="text-indigo-600 hover:text-indigo-900 mr-2">View</Link>
-                      <Link to={`/question-banks/${bank.id}/edit`} className="text-yellow-600 hover:text-yellow-900 mr-2">Edit</Link>
+                      <Link 
+                        to={`/question-banks/${bank.id}`} 
+                        className="inline-flex items-center px-2.5 py-1.5 bg-indigo-50 border border-indigo-200 rounded-md text-indigo-700 hover:bg-indigo-100 mr-2 transition-colors"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                          <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                          <path fillRule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clipRule="evenodd" />
+                        </svg>
+                        View
+                      </Link>
+                      
                       <button 
                         onClick={async () => {
                           if (confirm('Delete this bank?')) {
@@ -257,8 +266,11 @@ export const QuestionBanks: React.FC = () => {
                             fetchBanks();
                           }
                         }} 
-                        className="text-red-600 hover:text-red-900"
+                        className="inline-flex items-center px-2.5 py-1.5 bg-red-50 border border-red-200 rounded-md text-red-700 hover:bg-red-100 transition-colors"
                       >
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                          <path fillRule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clipRule="evenodd" />
+                        </svg>
                         Delete
                       </button>
                     </td>

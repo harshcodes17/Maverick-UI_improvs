@@ -135,7 +135,7 @@ const QuestionBankDetail: React.FC = () => {
   return (
     <div className="p-3 sm:p-6 md:p-8">
       {/* Breadcrumbs and nav */}
-      <nav className="mb-5">
+      <nav className="mb-5 flex justify-between items-center">
         <ol className="flex items-center space-x-2 text-sm">
           <li>
             <Link to="/question-banks" className="text-indigo-600 hover:text-indigo-900">
@@ -145,6 +145,15 @@ const QuestionBankDetail: React.FC = () => {
           <li className="text-gray-500">/</li>
           <li className="text-gray-500 truncate max-w-xs">{bank?.name}</li>
         </ol>
+        <Link 
+          to="/question-banks" 
+          className="inline-flex items-center px-3 py-2 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
+          Back to Banks
+        </Link>
       </nav>
       
       {/* Header with actions */}
@@ -156,7 +165,7 @@ const QuestionBankDetail: React.FC = () => {
           )}
         </div>
         
-        <div className="flex items-center gap-3">
+        {/* <div className="flex items-center gap-3">
           <Link
             to={`/question-banks/${bankId}/edit`}
             className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
@@ -166,7 +175,7 @@ const QuestionBankDetail: React.FC = () => {
             </svg>
             Edit
           </Link>
-        </div>
+        </div> */}
       </div>
       
       {/* Bank metadata */}
@@ -238,7 +247,7 @@ const QuestionBankDetail: React.FC = () => {
           <>
             <div className="border-b border-gray-200 px-4 py-5 sm:px-6 flex justify-between items-center">
               <h2 className="text-lg font-medium text-gray-900">Questions</h2>
-              <button
+              {/* <button
                 onClick={() => setShowAddQuestionsModal(true)}
                 className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
@@ -246,7 +255,7 @@ const QuestionBankDetail: React.FC = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                 </svg>
                 Add Existing Questions
-              </button>
+              </button> */}
             </div>
             
             {/* Existing questions list */}
@@ -264,12 +273,12 @@ const QuestionBankDetail: React.FC = () => {
                   >
                     Create New Question
                   </button>
-                  <button
+                  {/* <button
                     onClick={() => setShowAddQuestionsModal(true)}
                     className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                   >
                     Add Existing Questions
-                  </button>
+                  </button> */}
                 </div>
               </div>
             ) : (
@@ -321,14 +330,21 @@ const QuestionBankDetail: React.FC = () => {
                         <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                           <Link 
                             to={`/questions/${question.id}`}
-                            className="text-indigo-600 hover:text-indigo-900 mr-3"
+                            className="inline-flex items-center px-2.5 py-1.5 bg-indigo-50 border border-indigo-200 rounded-md text-indigo-700 hover:bg-indigo-100 mr-2 transition-colors"
                           >
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                              <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                              <path fillRule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clipRule="evenodd" />
+                            </svg>
                             View
                           </Link>
                           <button 
                             onClick={() => handleRemoveQuestion(question.id)} 
-                            className="text-red-600 hover:text-red-900"
+                            className="inline-flex items-center px-2.5 py-1.5 bg-red-50 border border-red-200 rounded-md text-red-700 hover:bg-red-100 transition-colors"
                           >
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                              <path fillRule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clipRule="evenodd" />
+                            </svg>
                             Remove
                           </button>
                         </td>
